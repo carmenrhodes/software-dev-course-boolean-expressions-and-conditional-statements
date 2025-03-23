@@ -42,6 +42,34 @@ if (choice === "mountains" && hasTorch) {
   console.log("You get lost and wander aimlessly.");
 }
 
+
+console.log(`\nAfter arriving to the ${choice}, you see two items on the ground: a sword and a compass.`);
+const itemChoice = readline.question("Which item do you pick up? Type 'sword' or 'compass': ");
+
+let hasSword = false
+let hasCompass = false
+
+if (itemChoice === "sword") {
+  hasSword = true;
+  console.log("You picked up the sword. You are prepared for any enemies that may cross your path.")
+} else if (itemChoice === "compass") {
+  hasCompass = true;
+  console.log("You picked up the compass. It leads you in a new direction.")
+} else {
+  console.log("You left both items behind.")
+} 
+
+console.log("\nYou continue your journey...");
+
+if ((choice === "mountains" && hasSword) || (choice === "village" && hasCompass)) {
+  console.log("Your preparation pays off! You overcome the obstacles ahead and reach your destination safely.");
+} else if (choice === "village" && !hasCompass && !hasSword) {
+  console.log("Without any tools, you're unsure where to go next and wander in circles.");
+} else if (choice === "mountains" && !hasSword) {
+  console.log("Without a weapon, you're defenseless against the mountain beasts. Better luck next time.");
+} else {
+  console.log("Your journey ends in uncertainty... but you gained experience for the next one!");
+}
 /* 
 
 Add Customization and expand the game:
